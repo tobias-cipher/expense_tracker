@@ -4,10 +4,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'routes/app_pages.dart';
 
 void main() async {
+  await GetStorage.init();
   runZonedGuarded(
     () async {
       runApp(
@@ -17,8 +19,8 @@ void main() async {
           splitScreenMode: true,
           builder: (context, child) {
             return GetMaterialApp(
-              title: "BioYap",
-              initialRoute: Routes.HOME,
+              title: "Expense App",
+              initialRoute: Routes.SPLASH,
               getPages: AppPages.routes,
               debugShowCheckedModeBanner: false,
               builder: (context, widget) {

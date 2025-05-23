@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:expense_tracker/api_network/network_api.dart';
 import 'package:expense_tracker/extra/constant.dart';
 import 'package:expense_tracker/repo/auth_repo.dart';
+import 'package:expense_tracker/routes/app_pages.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,17 +33,14 @@ class SigninScreenController extends GetxController {
         // Add your logic here if needed
         isLoading.value = false;
         emailController.clear();
-       
-        Get.offAll(() => const HomeScreen());
+
+        Get.toNamed(Routes.HOME);
       } else {
         isLoading.value = false;
         log(':::::::::::::${'Error' '${res['message']}'}');
         // Get.snackbar(
         //     colorText: Colors.white, 'Error', '${res['message']}');
-
-     
       }
-   
     } catch (e) {
       isLoading.value = false;
       log('$e');
