@@ -26,4 +26,32 @@ class AuthRepo {
       },);
     return response;
   }
+   Future<Map<String, dynamic>> getAllTransaction(String month) async {
+    var response = await _apiService.getApi(
+      endpoints: 'api/transaction?month=12',
+      header: {
+        'Authorization': 'Bearer ${NetworkApiService.getToken()}',
+      },
+    );
+    return response;
+  }
+   Future<Map<String, dynamic>> getAllPieChart() async {
+    var response = await _apiService.getApi(
+      endpoints: '/api/transaction/piehcart',
+      header: {
+        'Authorization': 'Bearer ${NetworkApiService.getToken()}',
+      },
+    );
+    return response;
+  }
+   Future<Map<String, dynamic>> getAllPrediction() async {
+    var response = await _apiService.getApi(
+      endpoints: '/api/transaction/check',
+      header: {
+        'Authorization': 'Bearer ${NetworkApiService.getToken()}',
+      },
+    );
+    return response;
+  }
+
 }

@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
     
         if (token?.isNotEmpty ?? false) {
-          Get.offAll(() => const HomeScreen());
+          Get.offAll(() => HomeScreen());
         } else {
           Get.offAll(() => LoginScreen());
         }

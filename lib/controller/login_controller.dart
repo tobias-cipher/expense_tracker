@@ -33,12 +33,11 @@ class SigninScreenController extends GetxController {
         isLoading.value = false;
         emailController.clear();
        
-        Get.offAll(() => const HomeScreen());
+        Get.offAll(() => HomeScreen());
       } else {
         isLoading.value = false;
         log(':::::::::::::${'Error' '${res['message']}'}');
-        // Get.snackbar(
-        //     colorText: Colors.white, 'Error', '${res['message']}');
+
 
      
       }

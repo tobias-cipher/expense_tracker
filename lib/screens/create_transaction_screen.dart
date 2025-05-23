@@ -350,7 +350,7 @@ class _CreateTransactionScreenState extends State<CreateTransactionScreen>
                             controllerr.categoryController,
                             currentFocus: controllerr.focusNodeCategory,
                             hintText: 'Enter Category',
-                            // validator: validateEmail,
+                            // validator: validateEmail,create
                             hintTextStyle: GoogleFonts.manrope(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,

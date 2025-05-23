@@ -22,5 +22,6 @@ class Constants {
     return SizedBox(
       width: horizontal,
     );
+    
   }
 }
