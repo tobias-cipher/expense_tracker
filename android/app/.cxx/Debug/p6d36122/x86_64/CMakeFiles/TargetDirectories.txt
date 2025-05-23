@@ -1,0 +1,2 @@
+C:/Users/tajri/Desktop/expense_tracker/android/app/.cxx/Debug/p6d36122/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/tajri/Desktop/expense_tracker/android/app/.cxx/Debug/p6d36122/x86_64/CMakeFiles/rebuild_cache.dir
