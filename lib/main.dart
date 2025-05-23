@@ -1,13 +1,43 @@
+import 'dart:async';
+import 'dart:developer';
 
-import 'package:expense_tracker/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
 
-void main()async {
-   await GetStorage.init(); // ✅ initialize before runApp
-  runApp(const MyApp());
+import 'routes/app_pages.dart';
+
+void main() async {
+  runZonedGuarded(
+    () async {
+      runApp(
+        ScreenUtilInit(
+          designSize: const Size(375, 812),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) {
+            return GetMaterialApp(
+              title: "BioYap",
+              initialRoute: Routes.HOME,
+              getPages: AppPages.routes,
+              debugShowCheckedModeBanner: false,
+              builder: (context, widget) {
+                return MediaQuery(
+                  data: MediaQuery.of(context)
+                      .copyWith(textScaler: TextScaler.linear(1.0)),
+                  child: widget!,
+                );
+              },
+            );
+          },
+        ),
+      );
+    },
+    (error, stackTrace) {
+      log('Error: $error');
+      log('Stack Trace: $stackTrace');
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,19 +46,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-       designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: false,
-      child: GetMaterialApp(
-
- 
-       
-            debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-         
-          home: SplashScreen()
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      home: Container(),
     );
   }
 }
